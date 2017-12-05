@@ -5,7 +5,7 @@ $(document).ready(function(){
     var input = $("input#paragraph").val();
     var unq = countWords(input);
     $("#wordList").empty();
-    
+
     for (var key of Object.keys(unq)){
       $("#wordList").append(key + ": " + unq[key] + "</br>");
     }
@@ -20,9 +20,7 @@ function countWords(input){
   for (i=0;i<words.length;i++){
     var word = words[i].trim();
     var word = words[i].toLowerCase();
-    if (!words[i]) {
-      delete words[i];
-    }
+    var word = word.replace(/[^a-z]/gi, '');
     if (uniques[word] !== undefined){
       uniques[word]++
     } else {
